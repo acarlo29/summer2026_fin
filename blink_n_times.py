@@ -14,10 +14,11 @@ pin1 = 11
 
 GPIO.setup(pin1, GPIO.OUT, initial=GPIO.LOW)
 
-ITER_COUNT = args.num  # ← no parentheses
+ITER_COUNT = args.num  
 
 print(f"Blinking {ITER_COUNT} times...")
 sleep(0.5)
+
 while ITER_COUNT > 0:
    ITER_COUNT -= 1
    GPIO.output(pin1, GPIO.HIGH)
@@ -27,3 +28,5 @@ while ITER_COUNT > 0:
 
 print("Done!")
 GPIO.cleanup()
+
+# could improve with a for loop
