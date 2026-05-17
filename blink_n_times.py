@@ -1,24 +1,29 @@
 import sys  
 import argparse
-import RPi.GPIO as GPIO    # Import Raspberry Pi GPIO library 
-from time import sleep     # Import the sleep from time module 
-GPIO.setwarnings(False)    # Ignore warning for now 
-GPIO.setmode(GPIO.BOARD)   # Use physical pin numbering 
+import RPi.GPIO as GPIO
+from time import sleep
+
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
 
 parser = argparse.ArgumentParser(description="Blink an LED n times")
 parser.add_argument("--num", type=int, default=5, help="Number of times to blink")
 args = parser.parse_args()
 
+pin1 = 11
 
-pin1 = 11 
+GPIO.setup(pin1, GPIO.OUT, initial=GPIO.LOW)
 
-ITER_COUNT = args.num()  
+ITER_COUNT = args.num  # ← no parentheses
 
-while ITER_COUNT > 0: # Run ITER_COUNT times 
-   ITER_COUNT -= 1 # Decrement counter 
-   GPIO.output(pin1, GPIO.HIGH) # Turn on 
-   sleep(1)                     # Sleep for 1 second 
-   GPIO.output(pin1, GPIO.LOW)  # Turn off 
-   sleep(1)                     # Sleep for 1 second 
+print(f"Blinking {ITER_COUNT} times...")
 
-GPIO.cleanup() 
+while ITER_COUNT > 0:
+   ITER_COUNT -= 1
+   GPIO.output(pin1, GPIO.HIGH)
+   sleep(1)
+   GPIO.output(pin1, GPIO.LOW)
+   sleep(1)
+
+print("Done!")
+GPIO.cleanup()
