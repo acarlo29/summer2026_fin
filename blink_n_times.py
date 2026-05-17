@@ -5,7 +5,7 @@ GPIO.setwarnings(False)    # Ignore warning for now
 GPIO.setmode(GPIO.BOARD)   # Use physical pin numbering 
 
 
-pin1 = 17 
+pin1 = 11 
 
 if len(sys.argv) == 1:
    ITER_COUNT = 5
