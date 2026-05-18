@@ -34,4 +34,7 @@ for i in range(args.num):
     sleep(1)
 
 print("Done!")
+
+buzzer.stop()
 GPIO.cleanup()
+
