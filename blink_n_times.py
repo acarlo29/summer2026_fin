@@ -12,14 +12,21 @@ args = parser.parse_args()
 
 pin1 = 11
 GPIO.setup(pin1, GPIO.OUT, initial=GPIO.LOW)
+
+pin2 = 16  # buzzer
+GPIO.setup(pin2, GPIO.OUT, initial=GPIO.LOW)
+
+
  
 print(f"Blinking {args.num} times...")
 sleep(1)
 
 for i in range(args.num):
     GPIO.output(pin1, GPIO.HIGH)
+    GPIO.output(pin2, GPIO.HIGH)
     sleep(1)
     GPIO.output(pin1, GPIO.LOW)
+    GPIO.output(pin2, GPIO.LOW)
     sleep(1)
 
 print("Done!")
