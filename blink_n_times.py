@@ -13,8 +13,12 @@ args = parser.parse_args()
 pin1 = 11
 GPIO.setup(pin1, GPIO.OUT, initial=GPIO.LOW)
 
-pin2 = 16  # buzzer
+# pin2 = 16  # buzzer
+# GPIO.setup(pin2, GPIO.OUT, initial=GPIO.LOW)
+
+pin2 = 16
 GPIO.setup(pin2, GPIO.OUT, initial=GPIO.LOW)
+buzzer = GPIO.PWM(pin2, 1000)  # 1000 Hz = typical beep tone
 
 
  
@@ -23,10 +27,10 @@ sleep(1)
 
 for i in range(args.num):
     GPIO.output(pin1, GPIO.HIGH)
-    GPIO.output(pin2, GPIO.HIGH)
+    buzzer.start(50)   # 50% duty cycle = beep
     sleep(1)
     GPIO.output(pin1, GPIO.LOW)
-    GPIO.output(pin2, GPIO.LOW)
+    buzzer.stop()
     sleep(1)
 
 print("Done!")
