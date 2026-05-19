@@ -7,7 +7,7 @@ import time
 # Pins
 TRIG = 16
 ECHO = 18
-BUZZER = 39
+BUZZER = 40
 
 GPIO.setmode(GPIO.BCM)
 
