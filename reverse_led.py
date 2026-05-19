@@ -5,9 +5,14 @@ import RPi.GPIO as GPIO
 import time
 
 # Pins
-TRIG = 16
-ECHO = 18
-LED = 40
+# TRIG = 16
+# ECHO = 18
+# LED = 40
+
+TRIG = 23
+ECHO = 24
+LED = 21
+
 
 GPIO.setmode(GPIO.BCM)
 
