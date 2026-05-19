@@ -58,9 +58,9 @@ try:
 
         elif dist < 50:
             GPIO.output(LED, True)
-            time.sleep(0.75)
+            time.sleep(0.65)
             GPIO.output(LED, False)
-            time.sleep(0.75)
+            time.sleep(0.65)
 
         else:
             GPIO.output(LED, False)
