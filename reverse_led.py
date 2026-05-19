@@ -69,6 +69,8 @@ try:
             time.sleep(0.5)
 
         else:
+              GPIO.output(LED, True)
+            time.sleep(1)
             GPIO.output(LED, False)
             time.sleep(1)
 
