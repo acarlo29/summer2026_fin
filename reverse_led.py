@@ -7,7 +7,7 @@ import time
 # Pins
 TRIG = 16
 ECHO = 18
-LED = 40  # your LED pin
+LED = 40
 
 GPIO.setmode(GPIO.BCM)
 
@@ -39,27 +39,28 @@ try:
         dist = get_distance()
         print("Distance:", dist, "cm")
 
-        # Very close = fast flashing
         if dist < 10:
             GPIO.output(LED, True)
             time.sleep(0.05)
             GPIO.output(LED, False)
             time.sleep(0.05)
 
-        # Medium = slower flashing
         elif dist < 25:
             GPIO.output(LED, True)
             time.sleep(0.1)
             GPIO.output(LED, False)
             time.sleep(0.2)
 
-        # Farther = slow flashing
         elif dist < 50:
             GPIO.output(LED, True)
             time.sleep(0.2)
             GPIO.output(LED, False)
             time.sleep(0.5)
 
-        # Too far = LED off
         else:
-             GPIO.output(LED, False)
+            GPIO.output(LED, False)
+            time.sleep(0.3)
+
+except KeyboardInterrupt:        # ← this was missing
+    print("Stopped")
+    GPIO.cleanup()
