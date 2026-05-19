@@ -16,7 +16,8 @@ GPIO.setup(pin1, GPIO.OUT, initial=GPIO.LOW)
 # pin2 = 16  # buzzer
 # GPIO.setup(pin2, GPIO.OUT, initial=GPIO.LOW)
 
-pin2 = 16
+# pin2 = 16
+pin2 = 39
 GPIO.setup(pin2, GPIO.OUT, initial=GPIO.LOW)
 buzzer = GPIO.PWM(pin2, 1000)  # 1000 Hz = typical beep tone
 
