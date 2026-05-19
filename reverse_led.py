@@ -46,25 +46,25 @@ try:
 
         if dist < 10:
             GPIO.output(LED, True)
-            time.sleep(0.2)
+            time.sleep(0.1)
             GPIO.output(LED, False)
-            time.sleep(0.2)
+            time.sleep(0.1)
 
         elif dist < 25:
             GPIO.output(LED, True)
-            time.sleep(0.3)
+            time.sleep(0.5)
             GPIO.output(LED, False)
-            time.sleep(0.3)
+            time.sleep(0.5)
 
         elif dist < 50:
             GPIO.output(LED, True)
-            time.sleep(0.5)
+            time.sleep(0.75)
             GPIO.output(LED, False)
-            time.sleep(0.5)
+            time.sleep(0.75)
 
         else:
             GPIO.output(LED, False)
-            time.sleep(0.9)
+            time.sleep(1)
 
 except KeyboardInterrupt:        # ← this was missing
     print("Stopped")
