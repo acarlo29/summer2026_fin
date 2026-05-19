@@ -62,4 +62,4 @@ try:
 
         # Too far = LED off
         else:
-            GPIO.out
+             GPIO.output(LED, False)
