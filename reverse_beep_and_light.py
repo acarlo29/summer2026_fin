@@ -95,5 +95,6 @@ try:
 
 except KeyboardInterrupt:        # ← this was missing
     print("Stopped")
+    buzzer.ChangeDutyCycle(0)
     buzzer.stop()
     GPIO.cleanup()
