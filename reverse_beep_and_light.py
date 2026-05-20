@@ -20,7 +20,12 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(TRIG, GPIO.OUT)
 GPIO.setup(ECHO, GPIO.IN)
 GPIO.setup(LED, GPIO.OUT)
+
+# buzzer set up
 GPIO.setup(BUZZER, GPIO.OUT)
+
+buzzer = GPIO.PWM(BUZZER, 1000)  # 1000 Hz tone
+buzzer.start(0)                  # start silent
 
 GPIO.output(TRIG, False)
 
@@ -28,10 +33,10 @@ time.sleep(2)
 
 def get_distance():
     GPIO.output(TRIG, True)
-    GPIO.output(BUZZER, True)
+    buzzer.ChangeDutyCycle(50)
     time.sleep(0.00001)
     GPIO.output(TRIG, False)
-    GPIO.output(BUZZER, False)
+    buzzer.ChangeDutyCycle(0)
 
     while GPIO.input(ECHO) == 0:
         pulse_start = time.time()
@@ -50,44 +55,45 @@ try:
 
         if dist < 10:
             GPIO.output(LED, True)
-            GPIO.output(BUZZER, True)
+            buzzer.ChangeDutyCycle(50)
             time.sleep(0.1)
             GPIO.output(LED, False)
-            GPIO.output(BUZZER, False)
+            buzzer.ChangeDutyCycle(0)
             time.sleep(0.1)
 
         elif dist < 25:
             GPIO.output(LED, True)
-            GPIO.output(BUZZER, True)
+            buzzer.ChangeDutyCycle(50)
             time.sleep(0.2)
             GPIO.output(LED, False)
-            GPIO.output(BUZZER, False)
+            buzzer.ChangeDutyCycle(0)
             time.sleep(0.2)
 
         elif dist < 35:
             GPIO.output(LED, True)
-            GPIO.output(BUZZER, True)
+            buzzer.ChangeDutyCycle(50)
             time.sleep(0.35)
             GPIO.output(LED, False)
-            GPIO.output(BUZZER, False)
+            buzzer.ChangeDutyCycle(0)
             time.sleep(0.35)
 
         elif dist < 50:
             GPIO.output(LED, True)
-            GPIO.output(BUZZER, True)
+            buzzer.ChangeDutyCycle(50)
             time.sleep(0.5)
             GPIO.output(LED, False)
-            GPIO.output(BUZZER, False)
+            buzzer.ChangeDutyCycle(0)
             time.sleep(0.5)
 
         else:
             GPIO.output(LED, True)
-            GPIO.output(BUZZER, True)
+            buzzer.ChangeDutyCycle(50)
             time.sleep(1)
             GPIO.output(LED, False)
-            GPIO.output(BUZZER, False)
+            buzzer.ChangeDutyCycle(0)
             time.sleep(1)
 
 except KeyboardInterrupt:        # ← this was missing
     print("Stopped")
+    buzzer.stop()
     GPIO.cleanup()
