@@ -26,4 +26,5 @@ for note, dur in zip(melody, durations):
     time.sleep(dur)
 
 pwm.stop()
+time.sleep(0.1)
 GPIO.cleanup()
