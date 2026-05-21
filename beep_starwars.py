@@ -46,9 +46,9 @@ H = Q * 2           # half note
 
 def play_imperial_march():
     # Phrase 1
-    play_note(A4, DQ); play_note(A4, DQ)
-    play_note(A4, S); play_note(A4, S); play_note(A4, S); play_note(A4, S)
-    play_note(F4, E); play_note(REST, E)
+    # play_note(A4, DQ); play_note(A4, DQ)
+    # play_note(A4, S); play_note(A4, S); play_note(A4, S); play_note(A4, S)
+    # play_note(F4, E); play_note(REST, E)
 
     play_note(A4, DQ); play_note(A4, DQ)
     play_note(A4, S); play_note(A4, S); play_note(A4, S); play_note(A4, S)
@@ -88,7 +88,7 @@ def play_imperial_march():
     play_note(GS4, Q); play_note(F4, DE); play_note(A4, S)
     play_note(A4, Q); play_note(F4, DE); play_note(C5, S); play_note(A4, H)
 
-for i in range(3):
+for i in range(1):
     play_imperial_march()
     time.sleep(0.5)
 
