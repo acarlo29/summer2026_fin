@@ -52,7 +52,7 @@ def play_imperial_march():
 
    # play_note(A4, DQ); play_note(A4, DQ)
    # play_note(A4, S); play_note(A4, S); play_note(A4, S); play_note(A4, S)
-    play_note(F4, E); play_note(REST, E)
+     #play_note(F4, E); play_note(REST, E)
 
     # Phrase 2
     play_note(A4, Q); play_note(A4, Q); play_note(A4, Q)
